@@ -3,15 +3,19 @@ This repo provides code to serve a pytorch segmentation model for prostate cance
 An image can be sent to the model running as a service. It gets segmented into the Gleason grades and the percentage of each grade is predicted.
 
 # Run Segmentation Service
-To run the service, you can choose between two options, Docker or Conda, to set up the enironment.
+To run the service, you can choose between two options, Docker or Conda, to set up the environment.
+
+## Model
+Please doenload the model here:
+https://drive.google.com/drive/folders/1Bvhi2GzV8Embe6rGoht5BZXy22kvX3U9?usp=sharing
 
 ## Option 1: Docker
 * Navigate into this folder (segmodel_serving)
 * Copy the file `model.pt` (from the google drive folder) into the folder 'model'
 * Install Docker
 * Open a console
-* Build the Docker with `docker build --network=host -t seg_serving`.
-* Run the Docker: `docker run --rm -it -p 6500:6500`
+* Build the Docker with `docker build --network=host -t seg_serving .`
+* Run the Docker: `docker run --rm -it -p 6500:6500 seg_serving:latest`
 
 ## Option 2: Conda
 * Navigate into this folder (segmodel_serving)
